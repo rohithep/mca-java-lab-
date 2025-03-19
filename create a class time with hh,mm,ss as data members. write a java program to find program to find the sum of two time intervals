@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+class Time {
+    private int hh, mm, ss;
+
+    public Time(int hh, int mm, int ss) {
+        this.hh = hh;
+        this.mm = mm;
+        this.ss = ss;
+    }
+
+    public Time add(Time t) {
+        int totalSeconds = this.ss + t.ss;
+        int totalMinutes = this.mm + t.mm + totalSeconds / 60;
+        int totalHours = this.hh + t.hh + totalMinutes / 60;
+        
+        return new Time(totalHours % 24, totalMinutes % 60, totalSeconds % 60);
+    }
+
+    public void display() {
+        System.out.printf("%02d:%02d:%02d\n", hh, mm, ss);
+    }
+}
+
+public class TimeAdd {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter first time (hh mm ss): ");
+        int h1 = scanner.nextInt();
+        int m1 = scanner.nextInt();
+        int s1 = scanner.nextInt();
+        Time time1 = new Time(h1, m1, s1);
+        
+        System.out.println("Enter second time (hh mm ss): ");
+        int h2 = scanner.nextInt();
+        int m2 = scanner.nextInt();
+        int s2 = scanner.nextInt();
+        Time time2 = new Time(h2, m2, s2);
+        
+        Time sum = time1.add(time2);
+        
+        System.out.print("Sum of time: ");
+        sum.display();
+        
+        scanner.close();
+    }
+}
