@@ -1,0 +1,29 @@
+class Employee {
+int ID;
+String Name, Designation, Dept;
+Employee(int ID, String Name, String Designation, String Dept) {
+this.ID = ID;
+this.Name = Name;
+this.Designation = Designation;
+this.Dept = Dept;
+}
+}
+class Salary extends Employee {
+double Basic, HRA = 1250, DA, Allowance, NetSalary;
+Salary(int ID, String Name, String Designation, String Dept, double Basic) {
+super(ID, Name, Designation, Dept);
+this.Basic = Basic;
+this.DA = 1.10 * Basic;
+this.Allowance = 0.35 * Basic;
+this.NetSalary = Basic + HRA + DA + Allowance;
+}
+void displaySalary() {
+System.out.println("Employee ID: " + ID);
+System.out.println("Name: " + Name);
+System.out.println("Net Salary: " + NetSalary);
+}
+public static void main(String[] args) {
+Salary emp = new Salary(101, "Rohith", "Manager", "HR", 120000);
+emp.displaySalary();
+}
+}
