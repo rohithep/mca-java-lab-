@@ -1,0 +1,17 @@
+class Volume {
+double volume(double side) {
+return side * side * side;
+}
+double volume(double length, double breadth, double height) {
+return length * breadth * height; 
+}
+double volume(double radius, double height, boolean isCylinder) {
+return Math.PI * radius * radius * height; 
+}
+public static void main(String[] args) {
+Volume v = new Volume();
+System.out.println("Volume of Cube: " + v.volume(5));
+System.out.println("Volume of Rectangular Box: " + v.volume(3, 4, 5));
+System.out.println("Volume of Cylinder: " + v.volume(3, 6, true));
+}
+}
