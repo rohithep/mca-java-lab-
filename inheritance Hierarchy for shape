@@ -1,0 +1,49 @@
+abstract class Shape {
+abstract void area();
+}
+abstract class TwoDim extends Shape {}
+abstract class ThreeDim extends Shape {}
+class Square extends TwoDim {
+double side;
+Square(double side) {
+this.side = side; }
+void area() {
+System.out.println("Square Area: " + (side * side));
+}}
+class Triangle extends TwoDim {
+double base, height;
+Triangle(double base, double height) {
+this.base = base;
+this.height = height;
+}
+void area() {
+System.out.println("Triangle Area: " + (0.5 * base * height));}
+}
+class Sphere extends ThreeDim {
+double radius;
+Sphere(double radius) {
+this.radius = radius;
+}
+void area() {
+System.out.println("Sphere Surface Area: " + (4 * Math.PI * radius * radius));
+}
+}
+class Cube extends ThreeDim {
+double side;
+Cube(double side) {
+this.side = side;}
+void area() {
+System.out.println("Cube Surface Area: " + (6 * side * side));
+}}
+public class ShapeTest {
+public static void main(String[] args) {
+Shape s1 = new Square(5);
+Shape s2 = new Triangle(4, 6);
+Shape s3 = new Sphere(3.5);
+Shape s4 = new Cube(4);
+s1.area();
+s2.area();
+s3.area();
+s4.area();
+}
+}
